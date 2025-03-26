@@ -33,6 +33,7 @@ Menjelaskan tujuan dari pernyataan masalah:
 ## Data Understanding
 Sumber Data: Dataset diambil dari sumber historis harga saham BBRI yang mencakup informasi seperti harga pembukaan, harga penutupan, harga tertinggi, harga terendah, dan volume perdagangan.
 
+
 |Date|Close|Close|High&|Low|Open|Volume|
 |---|---|---|---|---|---|---|
 |2022-04-11 00:00:00+00:00|382\.0|382\.0|416\.0|372\.0|400\.0|9410897000|
@@ -99,9 +100,11 @@ Prophet sangat efektif dalam mengelola data time series yang memiliki pola musim
 ## Visualisasi Prediksi
 
 ### Prophet
+
 ![Prophet](https://github.com/dream2hvn/SUB-Machine-Learning-Terapan/blob/main/Prophet%20Forecast.png)
 
 ### Arima
+
 ![Arima](https://github.com/dream2hvn/SUB-Machine-Learning-Terapan/blob/main/ARIMA%20Forecast.png)
 
 
