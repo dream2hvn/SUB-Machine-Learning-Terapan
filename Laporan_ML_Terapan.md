@@ -1,4 +1,4 @@
-# Laporan Machine Learning - Aswin Setiawan
+# Laporan Submission Machine Learning Terapan - Aswin Setiawan
 
 ## Domain Proyek
 
@@ -17,21 +17,21 @@
 ### Problem Statements
 
 Menjelaskan pernyataan masalah latar belakang:
-- Bagaimana memprediksi harga saham BBRI dalam rentang waktu tertentu dengan menggunakan data historis saham?
-- Bagaimana memastikan prediksi dapat memberikan gambaran tren dan pergerakan harga yang akurat?
-
+- Bagaimana memprediksi harga saham BBRI dalam jangka waktu tertentu melalui penggunaan data historis saham?
+- Bagaimana model prediksi dapat secara akurat menggambarkan pola tren harga?
+  
 ### Goals
 
 Menjelaskan tujuan dari pernyataan masalah:
-- Memprediksi harga saham BBRI selama 180 hari ke depan untuk memberikan wawasan bagi investor.
-- Menyajikan model yang dapat digunakan dalam prediksi time series untuk saham lain yang diperdagangkan di bursa.
-
+- Membangun model prediksi harga saham BBRI menggunakan metode machine learning.
+- Membandingkan performa beberapa model dalam memprediksi harga saham.
+  
 ### Solution statements
-- Menggunakan model Prophet dari Facebook untuk memprediksi harga saham berdasarkan data historis time series.
-- Menggunakan ARIMA sebagai baseline model untuk membandingkan hasil dari Prophet dan memastikan akurasi prediksi.
+- Memanfaatkan model Prophet yang dikembangkan oleh Facebook untuk memproyeksikan harga saham berdasarkan data historis time series. 
+- Menggunakan model ARIMA sebagai acuan dasar untuk membandingkan hasil dari Prophet dan memverifikasi ketepatan prediksi.
 
 ## Data Understanding
-Sumber Data: Dataset yang digunakan berasal dari Yahoo Finance dengan kode saham BBRI yang disesuaikan untuk Bursa Efek Indonesia (BBRI.JK). Data terdiri dari harga pembukaan, penutupan, tertinggi, terendah, volume transaksi, dan adjusted close, dari 1 Januari 2021 hingga 1 Januari 2024. Dataset dapat diakses melalui [Yahoo Finance](https://finance.yahoo.com/)
+Sumber Data: Dataset diambil dari sumber historis harga saham BBRI yang mencakup informasi seperti harga pembukaan, harga penutupan, harga tertinggi, harga terendah, dan volume perdagangan.
 
 |Date|Close|Close|High&|Low|Open|Volume|
 |---|---|---|---|---|---|---|
@@ -54,34 +54,33 @@ Sumber Data: Dataset yang digunakan berasal dari Yahoo Finance dengan kode saham
 |2022-05-12 00:00:00+00:00|208\.0|208\.0|220\.0|208\.0|212\.0|312982800|
 
 
-### Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
-- **Date:** Tanggal data perdagangan.
-- **Open:** Harga pembukaan saham pada hari tersebut.
+### Variabel dalam dataset:
+- **Date:** Tanggal perdagangan saham.
+- **Open:** Harga pembukaan saham.
 - **High:** Harga tertinggi saham pada hari tersebut.
 - **Low:** Harga terendah saham pada hari tersebut.
-- **Close:** Harga penutupan saham pada hari tersebut.
-- **Adj Close:** Harga penutupan yang disesuaikan.
-- **Volume:** Jumlah volume perdagangan.
+- **Close:** Harga penutupan saham.
+- **Volume:** Jumlah transaksi saham pada hari tersebut.
 
 ## Data Preparation
 
-- **Handling Missing Data:** Pada dataset tidak terdapat missing values, sehingga tidak diperlukan penanganan khusus.
+- **Handling Missing Data:** Dataset ini tidak memiliki nilai yang hilang, sehingga tidak memerlukan penanganan khusus.
 
 **Alasan Data Preparation:**
 
-- Resampling dan scaling tidak dilakukan karena hasil scraping data sudah dalam bentuk terstruktur, hanya memerlukan modifikasi nama colom atau head saja
-
+- Tahapan seperti resampling dan scaling tidak diterapkan karena data hasil scraping sudah terstruktur dengan baik, hanya perlu penyesuaian pada nama kolom atau header.
+  
 ## Modeling
 
 ### Model 1: Prophet
-Prophet adalah model time series forecasting yang efektif untuk menangkap tren jangka panjang dengan musiman. Pada proyek ini, Prophet dipilih karena kemudahannya dalam menangani data yang memiliki missing values dan kemampuannya memodelkan komponen tren, musiman, dan perubahan.
+Prophet digunakan untuk menangkap pola musiman dan tren jangka panjang dalam data saham. Prophet merupakan model prediksi time series yang efisien dalam mengidentifikasi tren jangka panjang serta pola musiman. Dalam proyek ini, Prophet dipilih karena kemampuannya yang baik dalam mengelola data dengan nilai yang hilang serta kemampuannya untuk memodelkan komponen tren, musiman, dan perubahan.
 
 Parameter Prophet:
 - Daily seasonality: True
 - Changepoint prior scale: Default (0.05)
 
 ### Model 2: ARIMA
-ARIMA digunakan sebagai baseline model untuk membandingkan performa prediksi. Model ini digunakan karena kesederhanaannya dalam memodelkan data time series non-stationary.
+ARIMA berfungsi sebagai model dasar untuk mengevaluasi kinerja prediksi. Model ini dipilih karena kemudahannya dalam memodelkan data time series non-stationary.
 
 Parameter ARIMA:
 - p: 5
@@ -89,35 +88,32 @@ Parameter ARIMA:
 - q: 0
   
 **Kelebihan dan Kekurangan:**
-Prophet sangat cocok untuk menangani data time series dengan musiman yang kuat, namun membutuhkan data yang lebih banyak untuk akurasi optimal.
-ARIMA bekerja dengan baik pada data yang memiliki pola musiman jangka pendek, tetapi kurang akurat dalam menangani perubahan musiman yang kompleks seperti yang ada pada saham BBRI.
+Prophet sangat efektif dalam mengelola data time series yang memiliki pola musiman yang kuat, meskipun memerlukan jumlah data yang lebih besar untuk mencapai akurasi yang optimal. Di sisi lain, ARIMA menunjukkan kinerja yang baik pada data dengan pola musiman jangka pendek, tetapi kurang mampu menangani perubahan musiman yang kompleks, seperti yang terlihat pada saham BBRI.
 
 ## Evaluation
 
 ### Metrik Evaluasi:
-- Mean Absolute Error (MAE): Digunakan untuk mengukur rata-rata kesalahan prediksi terhadap harga sebenarnya.
-- Root Mean Square Error (RMSE): Digunakan untuk menekankan kesalahan prediksi besar dan memberikan gambaran seberapa jauh prediksi dari nilai aktual.
+- Mean Absolute Error (MAE): Metode ini digunakan untuk mengukur rata-rata kesalahan dalam prediksi dibandingkan dengan harga yang sebenarnya.
+- Root Mean Square Error (RMSE): Metode ini berfungsi untuk memberikan penekanan pada kesalahan prediksi yang signifikan dan memberikan gambaran mengenai seberapa jauh prediksi dari nilai yang aktual.
 
 ## Visualisasi Prediksi
 
 ### Prophet
-![Prophet](https://github.com/yosriku/Stock-Market-Analysis/blob/main/images/Prophet.png?raw=true)
+![Prophet](https://github.com/dream2hvn/SUB-Machine-Learning-Terapan/blob/main/Prophet%20Forecast.png)
 
 ### Arima
-![Arima](https://github.com/yosriku/Stock-Market-Analysis/blob/main/images/Arima.png?raw=true)
+![Arima](https://github.com/dream2hvn/SUB-Machine-Learning-Terapan/blob/main/ARIMA%20Forecast.png)
 
 
 ### Hasil Evaluasi:
 
-|Metrics|Result|
-|---|---|
-|MAE Prophet| 17.6285819313176|
-|RMSE Prophet| 25.876196885311575|
-|MAE ARIMA| 6.105609482323135|
-|RMSE ARIMA| 20.40746911530558|
+| Model  | MAE  | RMSE  |
+|--------|------|-------|
+| Prophet | 88.54 | 115.05  |
+| ARIMA | 58.33 | 147.65  |
 
-Berdasarkan evaluasi performa, model ARIMA menghasilkan nilai MAE sebesar 6.11 dan RMSE sebesar 20.41. Sedangkan model Prophet memiliki MAE sebesar 17.63 dan RMSE sebesar 25.88. Dari hasil ini, ARIMA lebih unggul dalam hal akurasi prediksi dibandingkan Prophet pada data saham BBRI.
+Setelah melakukan evaluasi performa kedua model menggunakan metrik MAE dan RMSE, didapatkan hasil yaitu Model ARIMA menghasilkan MAE sebesar 58.33 dan RMSE sebesar 147.65. Model Prophet menghasilkan MAE sebesar 88.54 dan RMSE sebesar 115.05. Dari hasil ini, ARIMA lebih unggul dalam hal akurasi prediksi berdasarkan nilai MAE yang lebih rendah, namun Prophet lebih unggul berdasarkan nilai RMSE yang lebih rendah pada data saham BBRI.
 
-**Kesimpulan:** Meskipun Prophet dirancang untuk menangkap tren jangka panjang, pada dataset ini ARIMA memberikan hasil yang lebih akurat dalam memprediksi harga saham BBRI. Oleh karena itu, model ARIMA dipilih sebagai solusi terbaik berdasarkan performa evaluasi yang lebih baik pada metrik MAE dan RMSE dibandingkan dengan Prophet.
 
+**Kesimpulan:** Meskipun Prophet dirancang untuk menangkap tren jangka panjang, pada dataset ini ARIMA memberikan hasil yang lebih akurat dalam memprediksi harga saham BBRI jika ditinjau dari MAE. Namun, Prophet menunjukkan performa yang lebih baik dalam menghindari error yang sangat besar jika ditinjau dari RMSE. Oleh karena itu, pemilihan model terbaik bergantung pada prioritas Anda, apakah ingin meminimalkan rata-rata kesalahan (MAE) atau meminimalkan error besar (RMSE). Jika ingin meminimalkan rata-rata kesalahan, ARIMA adalah pilihan yang lebih baik. Jika ingin meminimalisir error besar, Prophet adalah pilihan yang lebih baik.
 
