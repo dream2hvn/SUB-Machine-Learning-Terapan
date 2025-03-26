@@ -1,10 +1,10 @@
-# Laporan Proyek Machine Learning - Aswin Setiawan
+# Laporan Machine Learning - Aswin Setiawan
 
 ## Domain Proyek
 
-**Latar Belakang:** Investasi saham telah menjadi salah satu instrumen keuangan yang diminati masyarakat untuk meningkatkan kekayaan jangka panjang. Untuk investor, kemampuan memprediksi pergerakan harga saham menjadi sangat penting dalam pengambilan keputusan. Saham BBRI Gojek Tokopedia (BBRI) adalah salah satu saham populer di Indonesia yang menarik untuk dianalisis. Pergerakan harga saham BBRI yang dipengaruhi oleh berbagai faktor ekonomi dan kebijakan pasar membuat prediksi time series menjadi tantangan menarik yang dapat diselesaikan dengan model machine learning.
+**Latar Belakang:** Berinvestasi dalam saham adalah salah satu instrumen keuangan yang banyak diminati oleh masyarakat untuk meningkatkan keuntungan jangka panjang. Bagi para investor, kemampuan untuk memprediksi pergerakan harga saham sangat penting dalam pengambilan keputusan. Saham BRI (BBRI) merupakan salah satu saham yang populer di Indonesia dan menarik untuk dianalisis. Pergerakan harga saham dipengaruhi oleh faktor ekonomi, kondisi pasar, serta faktor teknikal dan fundamental perusahaan. Oleh karena itu, menggunakan model machine learning untuk memprediksi harga saham dapat membantu investor membuat keputusan yang lebih baik.
 
-**Mengapa dan Bagaimana Masalah Harus Diselesaikan:** Memprediksi harga saham menggunakan pendekatan machine learning, seperti forecasting dengan time series, memungkinkan investor atau trader mengambil keputusan lebih cepat dan efisien. Dengan memiliki prediksi yang lebih akurat, investor dapat mengurangi risiko dan memaksimalkan profit dari perubahan harga saham.
+**Mengapa dan Bagaimana Masalah Harus Diselesaikan:** Dengan menggunakan teknik analisis data dan model machine learning, kita dapat memprediksi tren harga saham di masa mendatang. Prediksi ini dapat membantu investor dalam mengoptimalkan strategi investasi dan mengurangi risiko yang mungkin terjadi.
 
 **Referensi**:
 - [PT. Bank Rakyat Indonesia (Persero) Tbk. (BBRI.JK) Yahoo Finance](https://finance.yahoo.com/quote/BBRI.JK/) 
